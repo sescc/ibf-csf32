@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,14 +6,23 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './user-skills.component.html',
   styleUrl: './user-skills.component.css'
 })
-export class UserSkillsComponent implements OnInit {
+export class UserSkillsComponent implements OnInit, OnChanges {
 
   skillForm!: FormGroup;
 
+  // Lifecycle stage 1
   constructor(private fb: FormBuilder) {}
 
+  // Lifecycle stage 2
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["name"].currentValue !== changes["name"].previousValue) {
+      console.log("Current <-> Previous: " + changes["name"].currentValue + " <-> " + changes["name"].previousValue)
+    }
+  }
+
+  // Lifecycle stage 3
   ngOnInit(): void {
-    this.skillForm= this.fb.group({
+    this.skillForm = this.fb.group({
       name: "",
       skills: this.fb.array([])
     })
@@ -37,6 +46,5 @@ export class UserSkillsComponent implements OnInit {
   onSubmit() {
     console.log(this.skillForm.value);
   }
-
 
 }
