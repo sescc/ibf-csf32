@@ -35,7 +35,7 @@ export class UserSkillsComponent implements OnInit, OnChanges {
 
   newSkill(): FormGroup {
     return this.fb.group({
-      Skills: "",
+      Skill: "",
       Experience: ""
     })
   }
