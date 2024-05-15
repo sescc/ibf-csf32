@@ -1,0 +1,19 @@
+export class User {
+
+    // ! --> declare did not define default value
+    // ? --> optional 
+    lastname!: string;
+    firstname!: string;
+    email!: string;
+    food!: string[];
+
+    constructor(lastname: string, firstname: string, email: string, food: string[]) {
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.email = email;
+        this.food = food;
+    }
+
+    
+
+}
