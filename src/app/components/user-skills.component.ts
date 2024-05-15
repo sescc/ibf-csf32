@@ -8,6 +8,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class UserSkillsComponent implements OnInit, OnChanges {
 
+  title: string = "Skills";
   skillForm!: FormGroup;
 
   // Lifecycle stage 1
